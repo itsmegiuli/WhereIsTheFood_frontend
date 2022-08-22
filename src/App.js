@@ -7,17 +7,20 @@ import {
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 import Home from "./Home";
-
+import Quiz from "./Quiz";
+import StartMenu from "./GiuliTRYING_StartMenu";
 function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<StartMenu />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/sign-up" element={<SignUp/>}/>
                 <Route path="/sign-in" element={<SignIn/>}/>
+                <Route path="/quiz" element={<Quiz/>}/>
             </Routes>
         </Router>
     );
 }
 
-export default App
+export default App;
