@@ -1,14 +1,16 @@
 import React, {useState} from 'react';
-import {Alert, Button, Card, Container, Grid, TextField, Typography} from "@mui/material";
+import {Alert, Button, Card, Container, Grid, TextField, ThemeProvider, Typography} from "@mui/material";
 import * as yup from 'yup';
 import {useFormik} from "formik";
 import {useNavigate, Navigate} from "react-router-dom";
-import { baseUrl } from '../config';
+import {baseUrl} from '../config';
+
 import {makeStyles} from "@mui/material";
+import theme from "../style/theme";
 //const useStyle = makeStyles(() => ({
 //https://www.youtube.com/watch?v=Xoz31I1FuiY&ab_channel=JavaScriptMastery minute 29
 //}))
-
+// giuli: https://formik.org/docs/examples/with-material-ui
 
 const validationSchema = yup.object({
     username: yup
@@ -60,59 +62,61 @@ const SignIn = () => {
 
     // if token is set, sign in redirects to home
     if (localStorage.getItem("token")) {
-        return <Navigate to="/" replace />;
+        return <Navigate to="/" replace/>;
     }
 
     return (
-        <Container maxWidth="sm">
-            <Card sx={{padding: 4}} elevation={4}>
-                <form onSubmit={formik.handleSubmit}>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <Typography variant="h2">
-                                Sign In
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                fullWidth
-                                id="username"
-                                name="username"
-                                label="Username"
-                                value={formik.values.username}
-                                onChange={formik.handleChange}
-                                error={formik.touched.username && Boolean(formik.errors.username)}
-                                helperText={formik.touched.username && formik.errors.username}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                fullWidth
-                                id="password"
-                                name="password"
-                                label="Password"
-                                type="password"
-                                value={formik.values.password}
-                                onChange={formik.handleChange}
-                                error={formik.touched.password && Boolean(formik.errors.password)}
-                                helperText={formik.touched.password && formik.errors.password}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Button type="submit" variant="contained">Sign in</Button>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Button onClick={() => navigate('/sign-up')} variant="outlined">Create account</Button>
-                        </Grid>
-                        {error && (
+        <ThemeProvider theme={theme}>
+            <Container maxWidth="sm"  sx={{padding: 10}}>
+                <Card sx={{padding: 4}} elevation={4}>
+                    <form onSubmit={formik.handleSubmit}>
+                        <Grid container spacing={2}>
                             <Grid item xs={12}>
-                                <Alert severity="error">{error}</Alert>
+                                <Typography variant="h4">
+                                    Sign In
+                                </Typography>
                             </Grid>
-                        )}
-                    </Grid>
-                </form>
-            </Card>
-        </Container>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    id="username"
+                                    name="username"
+                                    label="Username"
+                                    value={formik.values.username}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.username && Boolean(formik.errors.username)}
+                                    helperText={formik.touched.username && formik.errors.username}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    id="password"
+                                    name="password"
+                                    label="Password"
+                                    type="password"
+                                    value={formik.values.password}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.password && Boolean(formik.errors.password)}
+                                    helperText={formik.touched.password && formik.errors.password}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Button type="submit" variant="contained">Sign in</Button>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Button onClick={() => navigate('/sign-up')} variant="outlined">Create account</Button>
+                            </Grid>
+                            {error && (
+                                <Grid item xs={12}>
+                                    <Alert severity="error">{error}</Alert>
+                                </Grid>
+                            )}
+                        </Grid>
+                    </form>
+                </Card>
+            </Container>
+        </ThemeProvider>
     );
 };
 

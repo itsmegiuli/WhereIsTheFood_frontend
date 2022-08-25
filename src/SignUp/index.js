@@ -1,11 +1,55 @@
 import React from 'react';
-import {Button, Card, Container, Grid, TextField, Typography} from "@mui/material";
+import {
+    Button,
+    Card,
+    colors,
+    Container,
+    containerClasses,
+    createTheme,
+    Grid,
+    TextField, ThemeProvider,
+    Typography
+} from "@mui/material";
 import * as yup from 'yup';
 import {useFormik} from "formik";
 import {Navigate, useNavigate} from "react-router-dom";
-import { baseUrl } from '../config';
+import {baseUrl} from '../config';
+import {styled} from "@mui/system";
+import ButtonUnstyled, {buttonUnstyledClasses} from "@mui/base/ButtonUnstyled";
+import {yellow} from "@mui/material/colors";
+import theme from "../style/theme";
+
+// style:
+/*
 
 
+const ButtonStyled = styled(Button)`
+  font-size: 0.7rem;
+  background-color: #f5c20f;
+  padding: 0.5em;
+  width: 20em;
+  border-radius: 30em;
+  color: black;
+  transition: all 150ms ease;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+  text-decoration: none;
+ 
+  &:hover {
+    background-color: #aa7700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+  }
+
+  &.${buttonUnstyledClasses.active} {
+    text-decoration: none;
+    background-color: #f5c20f;
+  }`;
+
+
+ */
 const validationSchema = yup.object({
     username: yup
         .string('Enter your username')
@@ -46,54 +90,56 @@ const SignUp = () => {
 
     // if token is set, sign in redirects to home
     if (localStorage.getItem("token")) {
-        return <Navigate to="/" replace />;
+        return <Navigate to="/" replace/>;
     }
 
     return (
-        <Container maxWidth="sm">
-            <Card sx={{padding: 4}} elevation={4}>
-                <form onSubmit={formik.handleSubmit}>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <Typography variant="h2">
-                                Sign Up
-                            </Typography>
+        <ThemeProvider theme={theme}>
+            <Container maxWidth="sm" sx={{padding: 10}}>
+                <Card sx={{padding: 4}} elevation={4}>
+                    <form onSubmit={formik.handleSubmit}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12}>
+                                <Typography variant="h4">
+                                    Sign Up
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    id="username"
+                                    name="username"
+                                    label="Username"
+                                    value={formik.values.username}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.username && Boolean(formik.errors.username)}
+                                    helperText={formik.touched.username && formik.errors.username}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    id="password"
+                                    name="password"
+                                    label="Password"
+                                    type="password"
+                                    value={formik.values.password}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.password && Boolean(formik.errors.password)}
+                                    helperText={formik.touched.password && formik.errors.password}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Button type="submit" variant="contained">Sign up</Button>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Button onClick={() => navigate('/sign-in')}>Already signed up?</Button>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                fullWidth
-                                id="username"
-                                name="username"
-                                label="Username"
-                                value={formik.values.username}
-                                onChange={formik.handleChange}
-                                error={formik.touched.username && Boolean(formik.errors.username)}
-                                helperText={formik.touched.username && formik.errors.username}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                fullWidth
-                                id="password"
-                                name="password"
-                                label="Password"
-                                type="password"
-                                value={formik.values.password}
-                                onChange={formik.handleChange}
-                                error={formik.touched.password && Boolean(formik.errors.password)}
-                                helperText={formik.touched.password && formik.errors.password}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Button type="submit" variant="contained">Sign up</Button>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Button onClick={() => navigate('/sign-in')} variant="outlined">Already signed up?</Button>
-                        </Grid>
-                    </Grid>
-                </form>
-            </Card>
-        </Container>
+                    </form>
+                </Card>
+            </Container>
+        </ThemeProvider>
     );
 };
 
