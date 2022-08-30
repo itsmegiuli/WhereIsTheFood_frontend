@@ -8,13 +8,12 @@ import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 import Home from "./Home";
 import Quiz from "./Quiz";
-import StartMenu from "./GiuliTRYING";
+import StartMenu from "./StartMenu";
 import {Menu} from "@mui/material";
 function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/sign" exact component={SignUp} />
                 <Route path="/" element={<StartMenu/>} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/sign-up" element={<SignUp/>}/>

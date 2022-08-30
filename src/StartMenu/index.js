@@ -1,6 +1,5 @@
-'use strict';
 import React from "react";
-import { createRoot } from 'react-dom/client';
+
 import {
     Typography,
     AppBar,
@@ -19,11 +18,10 @@ import { styled } from '@mui/system';
 import Stack from '@mui/material/Stack';
 
 
-const e = React.createElement;
 
 const CustomButton = styled(ButtonUnstyled)`
   font-family: IBM Plex Sans, sans-serif;
-  font-size: 1rem;
+  font-size: 1.5rem;
   background-color: white;
   padding: 0.5em;
   width: 20em;
@@ -66,8 +64,4 @@ const StartMenu = () => {
     );
 }
 
-
-const domContainer = document.querySelector('#root');
-const root = createRoot(domContainer);
-root.render(<StartMenu/>);
 export default StartMenu;

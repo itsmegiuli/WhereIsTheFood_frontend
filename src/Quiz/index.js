@@ -10,7 +10,7 @@ const Quiz = () => {
 
     return (
         <div>
-            <Typography variant="h1">This the QUIZ page</Typography>
+            <Typography>This the QUIZ page</Typography>
         </div>
     );
 }

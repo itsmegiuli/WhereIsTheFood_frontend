@@ -5,10 +5,7 @@ import * as yup from 'yup';
 import {useFormik} from "formik";
 import {useNavigate, Navigate} from "react-router-dom";
 import {baseUrl} from '../config';
-import '../style/index.css'
-import SignUp from "../SignUp";
 
-import {makeStyles} from "@mui/material";
 import theme from "../style/theme";
 
 // giuli: https://formik.org/docs/examples/with-material-ui

@@ -1,18 +1,23 @@
-<!-- aug 18th Giuli -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>where's the food - take the quiz</title>
-    <link rel="stylesheet" href="/src/style/quiz.css">
-    <script src="index.js"></script>
+    <link rel="stylesheet" href="quizOLDcss.css">
+    <script src="quizOLDjs.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
 <body class="container">
 <header id="header">
-    <img src="../../public/Images/wtf_small_blackbackground.png" alt="Logo of Where's the food" id="logo"/>
+    <img src="/public/Images/wtf_small_blackbackground.png" alt="Logo of Where's the food" id="logo"/>
 </header>
+
+<form action="auth" method="POST">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="submit">
+</form>
 
 <nav id="nav" role="navigation" class="primary-navigation">
     <ul>
@@ -29,17 +34,13 @@
 </nav>
 
 <main id="main">
-    <div id="question-container" class="hide">
-        <div id="question">Question goes here</div>
-        <div id="answer-buttons" class="btn-grid">
-            <button class="btn">Answer 1</button>
-            <button class="btn">Answer 2</button>
-            <button class="btn">Answer 3</button>
-            <button class="btn">Answer 4</button>
-        </div>
-        <div class="controls">
-            <button id="next-btn" class="next-btn btn hide">Next</button>
-        </div>
+
+    <div id="quiz-container">
+        <h3 id="questionNEW"></h3>
+    </div>
+
+
+    <div id="resultsoverhere">
 
     </div>
 
@@ -49,5 +50,6 @@
 
     Social media
 </footer>
+
 </body>
 </html>
