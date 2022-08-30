@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
+import ReactDOM from "react-dom/client";
 import {Alert, Button, Card, Container, Grid, TextField, ThemeProvider, Typography} from "@mui/material";
 import * as yup from 'yup';
 import {useFormik} from "formik";
 import {useNavigate, Navigate} from "react-router-dom";
 import {baseUrl} from '../config';
+import '../style/index.css'
+import SignUp from "../SignUp";
 
 import {makeStyles} from "@mui/material";
 import theme from "../style/theme";
-//const useStyle = makeStyles(() => ({
-//https://www.youtube.com/watch?v=Xoz31I1FuiY&ab_channel=JavaScriptMastery minute 29
-//}))
+
 // giuli: https://formik.org/docs/examples/with-material-ui
 
 const validationSchema = yup.object({
