@@ -1,19 +1,10 @@
-import React, from "react";
+import React from "react";
 import { useState } from 'react';
 import {Navigate} from "react-router-dom";
-
-function getQuestions() {
-    fetch('qs_and_as.json')
-        .then((res) => res.json())
-        .then((data) => {
-            console.log('json data', data);
-            return data.json();
-        })
-}
+import questions from "./questions";
 
 
 const Quiz = () => {
-    const questions = [getQuestions.data.json()];
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     //const [showScore, setShowScore] = useState(false);
@@ -27,17 +18,19 @@ const Quiz = () => {
             setCurrentQuestion(nextQuestion);
         } else {
             //finished! //todo! route to results page
-            return <Navigate to="/results" replace />;
+            console.log("done");
+            return <Navigate replace to="/results" />;
+
         }
     };
     return (
+
     <div className='quizContainer'>
                     <div className='qContainer'>
-
                         <div className='question'>{questions[currentQuestion].questionText}</div>
                     </div>
                     <div className='aContainer'>
-                        {questions[currentQuestion].answerOptions.map((answerOption) => (
+                     {questions[currentQuestion].answerOptions.map((answerOption) => (
                             <button onClick={() => handleAnswerOptionClick(answerOption.valueForScore)}>{answerOption.answerText}</button>
                         ))}
                     </div>
