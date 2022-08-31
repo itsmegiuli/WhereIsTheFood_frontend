@@ -24,7 +24,7 @@ const baseTheme = createTheme({
         Button: {
             defaultProps: {
                 sx: {
-                    margin: 4
+                    margin: 4,
                 }
             }
         },

@@ -9,7 +9,7 @@ import SignIn from "./SignIn";
 import Home from "./Home";
 import Quiz from "./Quiz";
 import StartMenu from "./StartMenu";
-import {Menu} from "@mui/material";
+import getQuestions from "./Quiz/getQuestions";
 function App() {
     return (
         <Router>
@@ -19,6 +19,7 @@ function App() {
                 <Route path="/sign-up" element={<SignUp/>}/>
                 <Route path="/sign-in" element={<SignIn/>}/>
                 <Route path="/quiz" element={<Quiz/>}/>
+                <Route path="/results" element={<StartMenu/>}/>
 
             </Routes>
         </Router>

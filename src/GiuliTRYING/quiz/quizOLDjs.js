@@ -44,7 +44,7 @@ function read(path) {
     return data;
 }
 window.onload = function () {
-    QsAndAsGet = read("/json/qs_and_as.json");
+    QsAndAsGet = read("/json/qs_and_asw.json");
     QsAndAs = JSON.parse(QsAndAsGet);
 
     startOrStartAgain();
@@ -141,7 +141,7 @@ function showResults() {
     //readResults = read("/json/results.json");  //GET results
     // results = JSON.parse(readResults);
 
-    //  QsAndAsGet = read("/json/qs_and_as.json");
+    //  QsAndAsGet = read("/json/qs_and_asw.json");
     //  QsAndAs = JSON.parse(QsAndAsGet);
     console.log("showResults()")
     chooseKitchen(pointsGained);

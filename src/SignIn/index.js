@@ -104,6 +104,8 @@ const SignIn = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Button onClick={() => navigate('/sign-up')} variant="outlined">Create account</Button>
+                                <Button onClick={() => navigate(-1)} variant="outlined" sx={{marginLeft: 2}}>Go Back </Button>
+
                             </Grid>
                             {error && (
                                 <Grid item xs={12}>

@@ -14,42 +14,9 @@ import * as yup from 'yup';
 import {useFormik} from "formik";
 import {Navigate, useNavigate} from "react-router-dom";
 import {baseUrl} from '../config';
-import {styled} from "@mui/system";
-import ButtonUnstyled, {buttonUnstyledClasses} from "@mui/base/ButtonUnstyled";
-import {yellow} from "@mui/material/colors";
 import theme from "../style/theme";
 
-// style:
-/*
 
-
-const ButtonStyled = styled(Button)`
-  font-size: 0.7rem;
-  background-color: #f5c20f;
-  padding: 0.5em;
-  width: 20em;
-  border-radius: 30em;
-  color: black;
-  transition: all 150ms ease;
-  cursor: pointer;
-  border: none;
-  display: inline-block;
-  text-decoration: none;
- 
-  &:hover {
-    background-color: #aa7700;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: white;
-  }
-
-  &.${buttonUnstyledClasses.active} {
-    text-decoration: none;
-    background-color: #f5c20f;
-  }`;
-
-
- */
 const validationSchema = yup.object({
     username: yup
         .string('Enter your username')
@@ -133,7 +100,8 @@ const SignUp = () => {
                                 <Button type="submit" variant="contained">Sign up</Button>
                             </Grid>
                             <Grid item xs={12}>
-                                <Button onClick={() => navigate('/sign-in')}>Already signed up?</Button>
+                                <Button  onClick={() => navigate('/sign-in')} variant="outlined">Already signed up?</Button>
+                                <Button onClick={() => navigate(-1)} variant="outlined"  sx={{marginLeft: 2}}> Go Back </Button>
                             </Grid>
                         </Grid>
                     </form>

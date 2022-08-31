@@ -58,8 +58,9 @@ const StartMenu = () => {
         <Stack container spacing={2} direction={"column"} bgcolor={"black"} align={"center"} padding={5}>
             <Link href={'/quiz'}><CustomButton>take the quiz</CustomButton></Link>
             <Link href={'/random'}><CustomButton>get random result</CustomButton></Link>
-            <Link href={'/about-us'}><CustomButton>about us</CustomButton></Link>
+            <Link href={'/about-us'}><CustomButton>about us?</CustomButton></Link>
             <Link href={'/sign-in'}><CustomButton>log in</CustomButton></Link>
+            <Link href={'/sign-in'}><CustomButton>sign up</CustomButton></Link>
         </Stack>
     );
 }

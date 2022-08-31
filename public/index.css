@@ -146,3 +146,75 @@ a:hover {
 }
 
 ul li ul li a { transition: all 0.5s ease; }
+
+
+
+
+
+/* QUIZ Style */
+.quizContainer {
+    background-color: white;
+    padding: 2em;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 2em;
+    color: black;
+    align-content: center;
+    text-align: center;
+
+}
+.qContainer {
+
+}
+
+.question{
+    font-size: 2em;
+    padding-bottom: 0.5em;
+    font-weight: bold;
+}
+.questionCount{
+
+}
+.aContainer button {
+    width: 95%;
+    background-color: #f5c20f;
+    color: black;
+    border: none;
+    display: block;
+    font-size: 0.9rem;
+    margin-left: 2.5%;
+    margin-bottom: 2.5%;
+    padding: 2%;
+    margin-inside: 1%;
+    border-radius: 2em;
+    line-height: 2em;
+
+
+}
+
+
+.aContainer button:hover {
+    background-color: black;
+    font-weight: bold;
+    scale: 1.1;
+    background-image: linear-gradient(
+            to right,
+            #E7484F 0%,
+            #F68B1D 25%,
+            #FCED00 50%,
+            #F68B1D 75%,
+            #E7484F 100%
+
+    );
+    animation:slidebg 2s linear;
+}
+
+@keyframes slidebg { /* movement (background position) */
+    to {
+        background-position:50vw;
+    }
+}
+
+
+
+
