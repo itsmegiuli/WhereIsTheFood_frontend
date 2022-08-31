@@ -16,10 +16,11 @@ const Quiz = () => {
         const nextQuestion = currentQuestion + 1;
         if (nextQuestion < questions.length) {
             setCurrentQuestion(nextQuestion);
-        } else {
+        }
+        if (currentQuestion+1 === questions.length) {
             //finished! //todo! route to results page
             console.log("done");
-            return <Navigate replace to="/results" />;
+            return <Navigate to="/results" />;
 
         }
     };
@@ -27,7 +28,7 @@ const Quiz = () => {
 
     <div className='quizContainer'>
                     <div className='qContainer'>
-                        <div className='question'>{questions[currentQuestion].questionText}</div>
+                        <div className='question'>{questions[currentQuestion].question}</div>
                     </div>
                     <div className='aContainer'>
                      {questions[currentQuestion].answerOptions.map((answerOption) => (
@@ -35,10 +36,11 @@ const Quiz = () => {
                         ))}
                     </div>
             <div className='score-section'>
-                ____________________
-                You scored {score}.
+                <span> ____________________<br/>
+                You scored {score}<br/></span>
+
                 <div className='question-count'>
-                    <span>Question {currentQuestion + 1}</span>/{questions.length}
+                    <span>You have {questions.length - currentQuestion} questions left.</span>
                 </div>
             </div>
         </div>

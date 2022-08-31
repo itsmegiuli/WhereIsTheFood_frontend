@@ -1,29 +1,29 @@
 const questions = [
     {
-        questionText: 'question 1',
+        question: 'Are you feeling adventurous today?',
         answerOptions: [
-            { answerText: "q1 answer", valueForScore: 1 },
-            { answerText: "q1 answer", valueForScore: 2 },
-            { answerText: "q1 answer", valueForScore: 3 },
-            { answerText: "q1 answer", valueForScore: 4 }
+            { answerText: "Never", valueForScore: 1 },
+            { answerText: "Not today", valueForScore: 2 },
+            { answerText: "Sometimes", valueForScore: 3 },
+            { answerText: "Always", valueForScore: 4 }
         ]
     },
     {
-        questionText: 'question 2',
+        question: 'Are you... ',
         answerOptions: [
-            { answerText: "q2 answer", valueForScore: 1 },
-            { answerText: "q2 answer", valueForScore: 2 },
-            { answerText: "q2 answer", valueForScore: 3 },
-            { answerText: "q2 answer", valueForScore: 4 }
+            { answerText: "...vegan?", valueForScore: 1 },
+            { answerText: "...vegetarian?", valueForScore: 4 },
+            { answerText: "...pescaterian?", valueForScore: 3 },
+            { answerText: "...carnivore?", valueForScore: 2 }
         ]
     },
     {
-        questionText: 'question 3',
+        question: 'What´s your budget?',
         answerOptions: [
-            { answerText: "q3 answer", valueForScore: 1 },
-            { answerText: "q3 answer", valueForScore: 2 },
-            { answerText: "q3 answer", valueForScore: 3 },
-            { answerText: "q3 answer", valueForScore: 4 }
+            { answerText: "I´m broke", valueForScore: 4 },
+            { answerText: "I´m cheap, but not cheap cheap", valueForScore: 1 },
+            { answerText: "I can afford to splurge", valueForScore: 3 },
+            { answerText: "Hunger has no price", valueForScore: 2 }
         ]
     },
 ];

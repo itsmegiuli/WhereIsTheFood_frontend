@@ -5,6 +5,8 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-inline: clip;
+
 }
 
 code {
@@ -54,6 +56,7 @@ footer { grid-area: c4; }
 
 
 footer {
+    overflow: auto;
     font-size: small;
     text-align: center;
     margin-bottom: 1em;
@@ -155,8 +158,8 @@ ul li ul li a { transition: all 0.5s ease; }
 .quizContainer {
     background-color: white;
     padding: 2em;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 30%;
+    margin-right: 30%;
     border-radius: 2em;
     color: black;
     align-content: center;
