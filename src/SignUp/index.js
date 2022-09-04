@@ -56,7 +56,7 @@ const SignUp = () => {
     });
 
     // if token is set, sign in redirects to home
-    if (localStorage.getItem("token")) {
+    if (sessionStorage.getItem("token")) {
         return <Navigate to="/" replace/>;
     }
 

@@ -41,7 +41,7 @@ const SignIn = () => {
             if (response.status >= 400) {
                 throw new Error(responseJson.error);
             }
-            localStorage.setItem("token", responseJson.token);
+            sessionStorage.setItem("token", responseJson.token);
         } catch (err) {
             setError(err.message);
         }
@@ -59,7 +59,7 @@ const SignIn = () => {
     });
 
     // if token is set, sign in redirects to home
-    if (localStorage.getItem("token")) {
+    if (sessionStorage.getItem("token")) {
         return <Navigate to="/" replace/>;
     }
 

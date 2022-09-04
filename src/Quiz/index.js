@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from 'react';
-import {Navigate} from "react-router-dom";
+import {Navigate, useNavigate} from "react-router-dom";
 import questions from "./questions";
 
 
 const Quiz = () => {
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    //const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
+    const navigate = useNavigate();
 
     const handleAnswerOptionClick = (valueForScore) => {
         setScore(score + valueForScore);
@@ -20,10 +20,10 @@ const Quiz = () => {
         if (currentQuestion+1 === questions.length) {
             //finished! //todo! route to results page
             console.log("done");
-            return <Navigate to="/results" />;
-
+            navigate(`/results?points=${score}`);
         }
     };
+
     return (
 
     <div className='quizContainer'>

@@ -59,8 +59,8 @@ const StartMenu = () => {
             <Link href={'/quiz'}><CustomButton>take the quiz</CustomButton></Link>
             <Link href={'/random'}><CustomButton>get random result</CustomButton></Link>
             <Link href={'/about-us'}><CustomButton>about us?</CustomButton></Link>
-            <Link href={'/sign-in'}><CustomButton>log in</CustomButton></Link>
-            <Link href={'/sign-in'}><CustomButton>sign up</CustomButton></Link>
+            <Link href={'/sign-in'}><CustomButton>sign in</CustomButton></Link>
+            <Link href={'/sign-up'}><CustomButton>sign up</CustomButton></Link>
         </Stack>
     );
 }
