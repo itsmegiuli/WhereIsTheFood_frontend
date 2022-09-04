@@ -27,23 +27,16 @@ const Quiz = () => {
     return (
 
     <div className='quizContainer'>
-                    <div className='qContainer'>
-                        <div className='question'>{questions[currentQuestion].question}</div>
-                    </div>
-                    <div className='aContainer'>
-                     {questions[currentQuestion].answerOptions.map((answerOption) => (
-                            <button onClick={() => handleAnswerOptionClick(answerOption.valueForScore)}>{answerOption.answerText}</button>
-                        ))}
-                    </div>
-            <div className='score-section'>
-                <span> ____________________<br/>
-                You scored {score}<br/></span>
-
-                <div className='question-count'>
-                    <span>You have {questions.length - currentQuestion} questions left.</span>
-                </div>
-            </div>
+        <div className='qContainer'>
+            <div className='question'>{questions[currentQuestion].question}</div>
         </div>
+        <div className='aContainer'>
+            {questions[currentQuestion].answerOptions.map((answerOption) => (
+                <button
+                    onClick={() => handleAnswerOptionClick(answerOption.valueForScore)}>{answerOption.answerText}</button>
+            ))}
+        </div>
+    </div>
     );
 
 }

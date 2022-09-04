@@ -1,4 +1,4 @@
-import React from 'react' //added aug 19th -giuli
+import React from 'react'
 import {BrowserRouter as Router, Route, Routes,} from "react-router-dom";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
@@ -8,6 +8,7 @@ import StartMenu from "./StartMenu";
 import Layout from "./Layout";
 import Results from "./Results";
 import Favorites from "./Favorites";
+import Random from "./Random";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                     <Route path="/sign-in" element={<SignIn/>}/>
                     <Route path="/quiz" element={<Quiz/>}/>
                     <Route path="/results" element={<Results/>}/>
+                    <Route path="/random" element={<Random/>}/>
                     <Route path="/favorites" element={<Favorites />}/>
                 </Route>
             </Routes>

@@ -9,9 +9,11 @@ import {
     CardContent,
     CardMedia,
     CircularProgress,
-    Container,
+    Container, ThemeProvider,
     Typography
 } from "@mui/material";
+import theme from "../Styling/theme";
+import ButtonUnstyled from "@mui/base/ButtonUnstyled";
 
 const Results = () => {
     const location = useLocation();
@@ -115,39 +117,65 @@ const Results = () => {
     }
 
     return (
-        <Container>
-            <Typography variant="h4">
-                {category.categoryName}
-                {sessionStorage.getItem("token") && !favorites.includes(category.categoryName) && <Button onClick={() => addToFavorite(category.categoryName)} size="small">Add to favorites</Button>}
-            </Typography>
-            <Container sx={{ display: "flex", justifyContent: "space-evenly", flexWrap: "wrap" }}>
-                {category.restaurants.map(restaurant => (
-                    <Card sx={{ maxWidth: 345, margin: 1 }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image={restaurant.imageURL}
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                {restaurant.title}
-                            </Typography>
-                            <Typography variant="body1" color="text.secondary">
-                                {restaurant.description}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                {restaurant.location}
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            {!restaurantHasWeather(restaurant.title) && <Button onClick={() => fetchWeatherForLocation(restaurant.title, restaurant.location)} size="small">Get Weather</Button>}
-                            {restaurantHasWeather(restaurant.title) && <Typography variant="body2">Temperature: {getWeatherForRestaurant(restaurant.title).weather.temperature}</Typography>}
-                        </CardActions>
+        <ThemeProvider theme={theme}>
+            <Container>
+                <Typography variant="h4" className="result">
+                    <h4>You should go for...</h4>
+                    <h2> {category.categoryName} Food </h2>
+                    {sessionStorage.getItem("token") && !favorites.includes(category.categoryName) &&
+                        <Button onClick={() => addToFavorite(category.categoryName)} size="small">Add "{category.categoryName}" to your favorites</Button>}
+                    <div style={{fontSize: "x-large"}}>Here are our favorite restaurants to eat {category.categoryName} food in Vienna: </div>
+                </Typography>
+                <Container sx={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap"}}>
+                    {category.restaurants.map(restaurant => (
+                        <Card sx={{maxWidth: 345, margin: 1}}>
+                            <CardMedia
+                                component="img"
+                                height="140"
+                                image={restaurant.imageURL}
+                                alt="green iguana"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="div">
+                                    {restaurant.title}
+                                </Typography>
+                                <Typography variant="body1" color="text.secondary">
+                                    {restaurant.description}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                    {restaurant.location}
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                {!restaurantHasWeather(restaurant.title) && <Button
+                                    onClick={() => fetchWeatherForLocation(restaurant.title, restaurant.location)}
+                                    size="small">Get Weather</Button>}
+                                {restaurantHasWeather(restaurant.title) && <Typography variant="body2">The temperature
+                                    is: {getWeatherForRestaurant(restaurant.title).weather.temperature} °C</Typography>}
+                            </CardActions>
+                        </Card>
+                    ))}
+                </Container>
+                <Container>
+                    <Card sx={{
+                        padding: 2,
+                        marginTop: 5,
+                        marginBottom: 10,
+                        marginLeft: 10,
+                        marginRight: 10,
+                        borderRadius: 5
+                    }}>
+                        <Typography>
+                            By the way... You can check the weather at the restaurants right now by clicking on "get
+                            weather" under every restaurant.
+                            You can also add {category.categoryName} to your favorite categories if you're signed in!
+                        </Typography>
                     </Card>
-                ))}
+
+                </Container>
+
             </Container>
-        </Container>
+        </ThemeProvider>
     );
 };
 

@@ -23,14 +23,14 @@ body {
     color: white;
     margin: 0;
 }
-
+/*
 #logo {
-    /*width: 200px;
-    height: 75px;*/
+
     padding-left: 25px;
     padding-top: 10px;
 
 }
+*/
 
 html, body {
     height: 100%;
@@ -45,12 +45,9 @@ main {
 .container {
     display: grid;
     grid-template-areas:
-    "c1 c2"
     "c3 c3"
     "c4 c4"
 }
-header { grid-area: c1;}
-nav { grid-area: c2;}
 main { grid-area: c3;}
 footer { grid-area: c4; }
 
@@ -171,12 +168,9 @@ ul li ul li a { transition: all 0.5s ease; }
     text-align: center;
 
 }
-.qContainer {
-
-}
 
 .question{
-    font-size: 2em;
+    font-size: 1.5em;
     padding-bottom: 0.5em;
     font-weight: bold;
 }
@@ -196,7 +190,6 @@ ul li ul li a { transition: all 0.5s ease; }
     margin-inside: 1%;
     border-radius: 2em;
     line-height: 2em;
-
 
 }
 
@@ -226,36 +219,14 @@ ul li ul li a { transition: all 0.5s ease; }
 
 
 /* ////////RESULTS PAGE ////////// */
-.results {
-    align-content: center;
-    justify-content: center;
+
+.result {
+    text-align: center;
+    font-size: 30px;
 }
 
-
-.restaurantImage {
-    width: 100px;
-    height: 100px;
-    padding: 5px;
-}
-/************  grid  ************/
-.restaurant {
-    display: grid;
-    grid-template-areas:
-    "c1 c2 c2"
-    "c1 c3 c3"
-    "c1 c4 c4";
-
-}
-.restaurantImage     {grid-area: c1;}
-.restaurantTitle   {grid-area: c2;}
-.restaurantDescription   {grid-area: c3;}
-.restaurantLocation {grid-area: c4;}
-
-.restaurant {
-    max-width: 80%;
-    padding: 10px;
-    margin-outside: 10px;
-    align-items: initial;
-
+h2 {
+    color: #f5c20f;
+    text-transform: uppercase;
 }
 

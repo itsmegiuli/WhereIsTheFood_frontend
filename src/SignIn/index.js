@@ -6,7 +6,7 @@ import {useFormik} from "formik";
 import {useNavigate, Navigate} from "react-router-dom";
 import {baseUrl} from '../config';
 
-import theme from "../style/theme";
+import theme from "../Styling/theme";
 
 // giuli: https://formik.org/docs/examples/with-material-ui
 
@@ -62,6 +62,7 @@ const SignIn = () => {
     if (sessionStorage.getItem("token")) {
         return <Navigate to="/" replace/>;
     }
+
 
     return (
         <ThemeProvider theme={theme}>
