@@ -136,17 +136,17 @@ const Results = () => {
                                 alt="green iguana"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
+                                <Typography gutterBottom variant="h3" component="div">
                                     {restaurant.title}
                                 </Typography>
-                                <Typography variant="body1" color="text.secondary">
+                                <Typography variant="body1" color="black">
                                     {restaurant.description}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    {restaurant.location}
+                                <Typography variant="body2" sx={{marginTop: 1}}>
+                                    Address: {restaurant.location}.
                                 </Typography>
                             </CardContent>
-                            <CardActions>
+                            <CardActions sx={{align: "center"}}>
                                 {!restaurantHasWeather(restaurant.title) && <Button
                                     onClick={() => fetchWeatherForLocation(restaurant.title, restaurant.location)}
                                     size="small">Get Weather</Button>}
