@@ -1,36 +1,17 @@
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-inline: clip;
 
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 /*
 Yellow darker: #f5c20f
 Yellow lighter: #fbe596
 */
+
+
 body {
     background-color: black;
     font-family: Helvetica, Arial, sans-serif;
     color: white;
     margin: 0;
 }
-/*
-#logo {
 
-    padding-left: 25px;
-    padding-top: 10px;
-
-}
-*/
 
 html, body {
     height: 100%;
@@ -40,17 +21,26 @@ html, body {
 main {
     overflow: auto;
 }
+.header {
+    display: flex;
+    justify-content: space-between;
+}
 
-/************  grid  ************/
+/************  grid  main & footer************/
 .container {
     display: grid;
     grid-template-areas:
     "c3 c3"
     "c4 c4"
 }
-main { grid-area: c3;}
-footer { grid-area: c4; }
 
+main {
+    grid-area: c3;
+}
+
+footer {
+    grid-area: c4;
+}
 
 footer {
     overflow: auto;
@@ -58,7 +48,6 @@ footer {
     text-align: center;
     margin-bottom: 1em;
     color: gray;
-
 }
 
 footer img {
@@ -73,16 +62,15 @@ footer img {
 footer img:hover {
     opacity: 1;
     border-radius: 0;
-
 }
 
 
-/************* menu *****************/
-nav.primary-navigation {
+/************* Navigation *****************/
+nav.navBar {
     margin: 2em;
-    display: block;
     text-align: right;
-    font-size: 1em; }
+    font-size: 1em;
+}
 
 .menuVisible {
     font-size: 2em;
@@ -90,11 +78,10 @@ nav.primary-navigation {
 }
 
 ul li {
-    list-style: none;
-    display: inline-block;
+    list-style: none; /*otherwise we get bullet points */
     position: relative;
     text-decoration: none;
-    margin-right: 5.5em;
+    margin-right: 7em;
 
 }
 
@@ -121,7 +108,7 @@ ul li ul {
 
 ul li:hover > ul,
 ul li ul:hover {
-    visibility: visible;
+    visibility: visible; /*shows when hovered*/
     opacity: 1;
     display: block;
     min-width: 3em;
@@ -144,19 +131,21 @@ ul li ul li a:hover {
     transition: all 0.3s ease;
 }
 
-a { text-decoration: none;
+a {
+    text-decoration: none;
 }
+
 a:hover {
     color: white;
 }
 
-ul li ul li a { transition: all 0.5s ease; }
+ul li ul li a {
+    transition: all 0.5s ease;
+}
 
-
-
-
-
-/* QUIZ Style */
+/*******************************************/
+/**************** QUIZ ********************/
+/*****************************************/
 .quizContainer {
     background-color: white;
     padding: 2em;
@@ -166,17 +155,15 @@ ul li ul li a { transition: all 0.5s ease; }
     color: black;
     align-content: center;
     text-align: center;
-
 }
 
-.question{
+.question {
     font-size: 1.5em;
     padding-bottom: 0.5em;
     font-weight: bold;
 }
-.questionCount{
 
-}
+
 .aContainer button {
     width: 95%;
     background-color: #f5c20f;
@@ -190,7 +177,6 @@ ul li ul li a { transition: all 0.5s ease; }
     margin-inside: 1%;
     border-radius: 2em;
     line-height: 2em;
-
 }
 
 
@@ -205,28 +191,86 @@ ul li ul li a { transition: all 0.5s ease; }
             #FCED00 50%,
             #F68B1D 75%,
             #E7484F 100%
-
     );
-    animation:slidebg 2s linear;
+    animation: slidebg 2s linear;
 }
 
 @keyframes slidebg { /* movement (background position) */
     to {
-        background-position:50vw;
+        background-position: 50vw;
     }
 }
 
 
+/*******************************************/
+/************ RESULTS PAGE ****************/
+/*****************************************/
+/* Parts of results page are handed by
+   custom material ui theme found at:
+    /src/customTheme.js     */
 
-/* ////////RESULTS PAGE ////////// */
 
 .result {
     text-align: center;
-    font-size: 30px;
 }
 
-h2 {
+.categoryName {
     color: #f5c20f;
     text-transform: uppercase;
+    font-size: 3.5em; /* change to maybe 1em in respo*/
+}
+.textAroundCategory {
+    font-size: 1.5em; /*change in respo */
+}
+.restaurantTitle {
+    color: black;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.restaurantDescription {
+
+}
+.restaurantLocation {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    color: grey;
 }
 
+/*******************************************/
+/*********** RESPONSIVENESS ***************/
+/*****************************************/
+/* Big part of the responsiveness of this website comes from material ui components
+ Results page: for screens under 870: it changes from 2 to 1 restaurant per line*/
+
+
+@media only screen and (max-width: 530px) {
+    .header {
+        display: flow;
+     }
+
+
+    nav.navBar {
+        text-align: center;
+        margin-top: -2em;
+    }
+    .menuVisible {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+
+    ul li { /* "menu when opened */
+        margin-right: 0;
+        position: center;
+
+    }
+
+
+    #logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
+
+    }
+}

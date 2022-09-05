@@ -11,8 +11,8 @@ const Layout = () => {
 
     return (
         <Container>
-            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <a href="/"><img src="/wtf_small_blackbackground.png" alt="Logo of Where's the food" id="logo"/></a>
+            <Box className="header" >
+                <a href="/"><img src="/logo.png" alt="Logo of Where's the food" id="logo"/></a>
                 {sessionStorage.getItem("token") && !hideNavBarLocations.includes(location) && <WhenSignedIn/>}
                 {!sessionStorage.getItem("token") && !hideNavBarLocations.includes(location) &&  <NavBar />}
 

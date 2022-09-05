@@ -6,7 +6,7 @@ const NavBar = () => {
 
 
     return (
-        <nav id="nav" role="navigation" className="primary-navigation">
+        <nav id="nav" role="navigation" className="navBar">
             <ul>
                 <li><a className="menuVisible" href="#">menu</a>
                     <ul className="dropdown">

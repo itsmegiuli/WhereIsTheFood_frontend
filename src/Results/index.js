@@ -12,7 +12,7 @@ import {
     Container, ThemeProvider,
     Typography
 } from "@mui/material";
-import theme from "../Styling/theme";
+import theme from "../customTheme";
 
 
 const Results = () => {
@@ -119,12 +119,12 @@ const Results = () => {
     return (
         <ThemeProvider theme={theme}>
             <Container>
-                <Typography variant="h4" className="result">
-                    <h4>You should go for...</h4>
-                    <h2> {category.categoryName} Food </h2>
+                <Typography className="result">
+                    <div className="textAroundCategory"><b>You should go for...</b></div>
+                    <div className="categoryName"> {category.categoryName} Food </div>
                     {sessionStorage.getItem("token") && !favorites.includes(category.categoryName) &&
                         <Button onClick={() => addToFavorite(category.categoryName)} size="small">Add "{category.categoryName}" to your favorites</Button>}
-                    <div style={{fontSize: "x-large"}}>Here are our favorite restaurants to eat {category.categoryName} food in Vienna: </div>
+                    <div className="textAroundCategory">Here are our favorite restaurants to eat {category.categoryName} food in Vienna: </div>
                 </Typography>
                 <Container sx={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap"}}>
                     {category.restaurants.map(restaurant => (
@@ -133,24 +133,20 @@ const Results = () => {
                                 component="img"
                                 height="140"
                                 image={restaurant.imageURL}
-                                alt="green iguana"
+                                alt="Picture of restaurant"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h4" component="div">
-                                    {restaurant.title}
-                                </Typography>
-                                <Typography variant="body1" color="black">
-                                    {restaurant.description}
-                                </Typography>
-                                <Typography variant="body2" sx={{marginTop: 1}}>
-                                    Address: {restaurant.location}.
+                                <Typography>
+                                    <div className="restaurantTitle"> {restaurant.title} </div>
+                                    <div className="restaurantDescription"> {restaurant.description} </div>
+                                    <div className="restaurantLocation"> Address: {restaurant.location}.</div>
                                 </Typography>
                             </CardContent>
                             <CardActions sx={{align: "center"}}>
                                 {!restaurantHasWeather(restaurant.title) && <Button
                                     onClick={() => fetchWeatherForLocation(restaurant.title, restaurant.location)}
                                     size="small">Get Weather</Button>}
-                                {restaurantHasWeather(restaurant.title) && <Typography variant="body2">The temperature
+                                {restaurantHasWeather(restaurant.title) && <Typography variant="restaurantDescription">The temperature
                                     is: {getWeatherForRestaurant(restaurant.title).weather.temperature} °C</Typography>}
                             </CardActions>
                         </Card>

@@ -6,7 +6,7 @@ import {useFormik} from "formik";
 import {useNavigate, Navigate} from "react-router-dom";
 import {baseUrl} from '../config';
 
-import theme from "../Styling/theme";
+import theme from "../customTheme";
 
 // giuli: https://formik.org/docs/examples/with-material-ui
 

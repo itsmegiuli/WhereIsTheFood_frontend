@@ -14,7 +14,7 @@ import * as yup from 'yup';
 import {useFormik} from "formik";
 import {Navigate, useNavigate} from "react-router-dom";
 import {baseUrl} from '../config';
-import theme from "../Styling/theme";
+import theme from "../customTheme";
 
 
 const validationSchema = yup.object({

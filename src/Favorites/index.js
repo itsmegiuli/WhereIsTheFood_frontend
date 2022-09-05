@@ -13,7 +13,7 @@ import {
     Container, ThemeProvider,
     Typography
 } from "@mui/material";
-import theme from "../Styling/theme";
+import theme from "../customTheme";
 
 const Results = () => {
     const [categories, setCategories] = useState([]);
