@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from 'react';
-import {Navigate, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import questions from "./questions";
 
 
@@ -18,8 +18,6 @@ const Quiz = () => {
             setCurrentQuestion(nextQuestion);
         }
         if (currentQuestion+1 === questions.length) {
-            //finished! //todo! route to results page
-            console.log("done");
             navigate(`/results?points=${score}`);
         }
     };

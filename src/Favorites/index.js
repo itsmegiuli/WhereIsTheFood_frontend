@@ -14,7 +14,6 @@ import {
     Typography
 } from "@mui/material";
 import theme from "../Styling/theme";
-import {alignProperty} from "@mui/material/styles/cssUtils";
 
 const Results = () => {
     const [categories, setCategories] = useState([]);

@@ -13,7 +13,7 @@ import {
     Typography
 } from "@mui/material";
 import theme from "../Styling/theme";
-import ButtonUnstyled from "@mui/base/ButtonUnstyled";
+
 
 const Results = () => {
     const location = useLocation();
@@ -136,7 +136,7 @@ const Results = () => {
                                 alt="green iguana"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h3" component="div">
+                                <Typography gutterBottom variant="h4" component="div">
                                     {restaurant.title}
                                 </Typography>
                                 <Typography variant="body1" color="black">
