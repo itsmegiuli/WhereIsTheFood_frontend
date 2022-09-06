@@ -124,14 +124,17 @@ const Results = () => {
     return (
         <ThemeProvider theme={theme}>
             <Container sx={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap"}}>
-                <Container sx={{alignContent: "center", margin: 2}}>Here are the restaurants from your favorite categories!</Container>
+                <Typography className="result">
+                    <div className="textAroundCategory">Here are the restaurants from your favorite categories!</div>
+                </Typography>
+                <Container sx={{display: "flex", justifyContent: "space-evenly"}}>
                 {categories.map(category => (
-                    <Box>
-                        <Typography variant="h4">
-                            {category.categoryName}
+                    <Box sx={{paddingTop: 2,}}>
+                        <Typography className="categoryName">
+                            <b>{category.categoryName}</b>
                             <Button
                                 onClick={() => removeFromFavorites(category.categoryName)}
-                                size="small">Remove from favorites</Button>
+                                size="small">[Remove from favorites]</Button>
                         </Typography>
                         {category.restaurants.map(restaurant => (
                             <Card sx={{maxWidth: 345, margin: 1}}>
@@ -139,17 +142,13 @@ const Results = () => {
                                     component="img"
                                     height="140"
                                     image={restaurant.imageURL}
-                                    alt="green iguana"
+                                    alt="picture of restaurant"
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        {restaurant.title}
-                                    </Typography>
-                                    <Typography variant="body1" color="text.secondary">
-                                        {restaurant.description}
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        {restaurant.location}
+                                    <Typography>
+                                        <div className="restaurantTitle"> {restaurant.title} </div>
+                                        <div className="restaurantDescription"> {restaurant.description} </div>
+                                        <div className="restaurantLocation"> Address: {restaurant.location}.</div>
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
@@ -163,6 +162,7 @@ const Results = () => {
                         ))}
                     </Box>
                 ))}
+                </Container>
             </Container>
         </ThemeProvider>
     );

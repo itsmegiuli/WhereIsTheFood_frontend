@@ -26,6 +26,9 @@ main {
     justify-content: space-between;
 }
 
+.startMenu {
+    max-width: 90%;
+}
 /************  grid  main & footer************/
 .container {
     display: grid;
@@ -66,6 +69,9 @@ footer img:hover {
 
 
 /************* Navigation *****************/
+nav {
+    max-width: 90%;
+}
 nav.navBar {
     margin: 2em;
     text-align: right;
@@ -102,19 +108,13 @@ ul li ul {
     left: 0;
     background: black;
     color: #f5c20f;
-    text-align: left;
-
 }
 
 ul li:hover > ul,
 ul li ul:hover {
     visibility: visible; /*shows when hovered*/
     opacity: 1;
-    display: block;
-    min-width: 3em;
-    text-align: right;
     padding-top: 1em;
-    margin-right: 5em;
 }
 
 ul li ul li {
@@ -126,6 +126,7 @@ ul li ul li {
 }
 
 ul li ul li a:hover {
+    /*border effect*/
     padding-left: 1em;
     border-left: 0.5em solid #fbe596;
     transition: all 0.3s ease;
@@ -149,8 +150,8 @@ ul li ul li a {
 .quizContainer {
     background-color: white;
     padding: 2em;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 15%;
+    margin-right: 15%;
     border-radius: 2em;
     color: black;
     align-content: center;
@@ -170,7 +171,7 @@ ul li ul li a {
     color: black;
     border: none;
     display: block;
-    font-size: 0.9rem;
+    font-size: 1.2em;
     margin-left: 2.5%;
     margin-bottom: 2.5%;
     padding: 2%;
@@ -236,6 +237,7 @@ ul li ul li a {
     color: grey;
 }
 
+
 /*******************************************/
 /*********** RESPONSIVENESS ***************/
 /*****************************************/
@@ -246,23 +248,83 @@ ul li ul li a {
 @media only screen and (max-width: 530px) {
     .header {
         display: flow;
-     }
+        overflow: visible;
 
-
-    nav.navBar {
-        text-align: center;
-        margin-top: -2em;
     }
+
+    nav {
+    }
+
+    nav .navBar {
+
+    }
+
     .menuVisible {
-        font-size: 1.5em;
-        font-weight: bold;
+        visibility: hidden; /* "menu" not showing*/
+        padding: 0;
+        margin: 0;
+        font-size: 0;
+    }
+
+    ul {
+        display: contents;
+    }
+
+    ul li {
+        display: contents;
     }
 
 
-    ul li { /* "menu when opened */
-        margin-right: 0;
-        position: center;
+    ul li ul {
+        visibility: visible; /**/
+        opacity: 1; /**/
+    }
 
+    ul li:hover > ul,
+    ul li ul:hover {
+        padding-top: 0;
+    }
+
+    ul li ul li {
+        margin-bottom: 1em;
+        text-transform: uppercase;
+        font-size: 0.9em;
+    }
+
+    ul li ul li a {
+        padding: 0;
+        display: block;
+
+
+    }
+
+    ul li ul li a:hover {
+        /*border effect*/
+        padding-left: 0;
+        border-left: 0;
+        transition: revert;
+        display: block;
+        cursor: pointer;
+    }
+
+
+
+
+    /**************** Responsive results ********************/
+    .categoryName {
+        font-size: 2em;
+    }
+
+    .textAroundCategory {
+        font-size: 1em;
+    }
+
+    .restaurantTitle {
+        font-size: 1em;
+    }
+
+    .restaurantDescription .restaurantLocation {
+        font-size: 0.8em;
     }
 
 
@@ -270,7 +332,47 @@ ul li ul li a {
         display: block;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        max-width: 100%;
+        height: auto;
 
 
     }
+
+
+    /**** quiz **/
+    .quizContainer {
+        padding: 1em;
+    }
+    .question {
+        font-size: 1em;
+    }
+    .aContainer button {
+        font-size: 0.9em;
+    }
+
+
+
 }
+@media only screen and (max-width: 900px) {
+
+    /**************** Responsive quiz ********************/
+    .quizContainer {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+

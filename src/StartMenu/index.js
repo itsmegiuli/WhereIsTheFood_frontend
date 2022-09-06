@@ -16,22 +16,22 @@ import {
 import ButtonUnstyled, { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
 import { styled } from '@mui/system';
 import Stack from '@mui/material/Stack';
+import {getSpaceUntilMaxLength} from "@testing-library/user-event/dist/utils";
 
 
 
 const CustomButton = styled(ButtonUnstyled)`
-  font-family: IBM Plex Sans, sans-serif;
   font-size: 1.5rem;
   background-color: white;
   padding: 0.5em;
-  width: 20em;
+  width: 30em;
   border-radius: 30em;
   color: black;
   transition: all 150ms ease;
-  cursor: pointer;
   border: none;
   display: inline-block;
   text-decoration: none;
+
   
 
  
@@ -55,12 +55,12 @@ const CustomButton = styled(ButtonUnstyled)`
 
 const StartMenu = () => {
     return (
-        <Stack container spacing={2} direction={"column"} bgcolor={"black"} align={"center"} padding={5}>
-            <Link href={'/quiz'}><CustomButton>take the quiz</CustomButton></Link>
-            <Link href={'/random'}><CustomButton>get random result</CustomButton></Link>
-            <Link href={'/sign-in'}><CustomButton>sign in</CustomButton></Link>
-            <Link href={'/sign-up'}><CustomButton>sign up</CustomButton></Link>
-        </Stack>
+            <Stack container spacing={2} direction={"column"} align={"center"} padding={5} >
+                <Link href={'/quiz'}><CustomButton className="startMenu">take the quiz</CustomButton></Link>
+                <Link href={'/random'}><CustomButton className="startMenu">get random result</CustomButton></Link>
+                <Link href={'/sign-in'}><CustomButton className="startMenu">sign in</CustomButton></Link>
+                <Link href={'/sign-up'}><CustomButton className="startMenu">sign up</CustomButton></Link>
+            </Stack>
     );
 }
 

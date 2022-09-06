@@ -17,9 +17,6 @@ const Layout = () => {
                 {!sessionStorage.getItem("token") && !hideNavBarLocations.includes(location) &&  <NavBar />}
 
             </Box>
-            <Box sx={{textAlign: "flex", justifyContent: "space-between"}}>
-
-            </Box>
             <Box>
                 <Outlet />
             </Box>

@@ -128,7 +128,7 @@ const Results = () => {
                 </Typography>
                 <Container sx={{display: "flex", justifyContent: "space-evenly", flexWrap: "wrap"}}>
                     {category.restaurants.map(restaurant => (
-                        <Card sx={{maxWidth: 345, margin: 1}}>
+                        <Card sx={{maxWidth: 345, margin: 1}} >
                             <CardMedia
                                 component="img"
                                 height="140"
@@ -157,14 +157,13 @@ const Results = () => {
                         padding: 2,
                         marginTop: 5,
                         marginBottom: 10,
-                        marginLeft: 10,
-                        marginRight: 10,
-                        borderRadius: 5
+                        borderRadius: 5,
                     }}>
                         <Typography>
                             By the way... You can check the weather at the restaurants right now by clicking on "get
                             weather" under every restaurant.
-                            You can also add {category.categoryName} to your favorite categories if you're signed in!
+                            You can also add <b>{category.categoryName}</b> to your favorite categories if you're signed in!
+                            So sign up to save your favorite categories!
                         </Typography>
                     </Card>
 
