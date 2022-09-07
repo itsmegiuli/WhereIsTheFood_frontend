@@ -16,9 +16,7 @@ const CustomButton = styled(ButtonUnstyled)`
   border: none;
   display: inline-block;
   text-decoration: none;
-
   
-
  
   &:hover {
     background-color: #f5c20f;
@@ -38,15 +36,31 @@ const CustomButton = styled(ButtonUnstyled)`
     outline: none;
   }`;
 
+const logout = () => {
+    sessionStorage.removeItem("token");
+    window.location.reload(true);
+};
+
 const StartMenu = () => {
     return (
-            <Stack container spacing={2} direction={"column"} align={"center"} padding={5} >
+            <Stack container spacing={2} direction={"column"} align={"center"} padding={5} marginTop={2} >
                 <Link href={'/quiz'}><CustomButton className="startMenu">take the quiz</CustomButton></Link>
                 <Link href={'/random'}><CustomButton className="startMenu">get random result</CustomButton></Link>
-                <Link href={'about-us'}><CustomButton className="startMenu">about us</CustomButton></Link>
-                <Link href={'/sign-in'}><CustomButton className="startMenu">sign in</CustomButton></Link>
+                <Link href={'/about-us'}><CustomButton className="startMenu">about us</CustomButton></Link>
+
+                {sessionStorage.getItem("token") && <Link href={'/favorites'}><CustomButton className="startMenu">see your favorites</CustomButton></Link>}
+                {sessionStorage.getItem("token") && <Link><CustomButton onClick={logout} className="startMenu">log out</CustomButton></Link>}
+
+
+                {!sessionStorage.getItem("token") && <Link href={'/sign-in'}><CustomButton className="startMenu">sign in</CustomButton></Link>}
+                {!sessionStorage.getItem("token") && <Link href={'/sign-up'}><CustomButton className="startMenu">sign up</CustomButton></Link>}
+
             </Stack>
     );
 }
+
+// "different" menus depending if you're signed in or not
+//if signed in (token), see your favorites and log out visible
+//if NOT signed in (!token), sign in /up option
 
 export default StartMenu;

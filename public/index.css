@@ -337,10 +337,11 @@ ul li ul li a {
         padding-bottom: 0;
         max-width: 100%;
         height: auto;
-
-
     }
 
+    #logoHome {
+        max-width: 50%;
+    }
 
     /**** quiz **/
     .quizContainer {

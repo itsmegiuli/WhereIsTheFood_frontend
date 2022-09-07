@@ -1,9 +1,6 @@
 import React from "react";
-import {useNavigate} from "react-router-dom";
 
 const NavBar = () => {
-    const navigate = useNavigate();
-
 
     return (
         <nav id="nav" role="navigation" className="navBar">

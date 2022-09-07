@@ -1,16 +1,14 @@
 import React, {useState} from 'react';
-import ReactDOM from "react-dom/client";
 import {Alert, Button, Card, Container, Grid, TextField, ThemeProvider, Typography} from "@mui/material";
 import * as yup from 'yup';
 import {useFormik} from "formik";
 import {useNavigate, Navigate} from "react-router-dom";
 import {baseUrl} from '../config';
-
 import theme from "../customTheme";
 
-// giuli: https://formik.org/docs/examples/with-material-ui
+// https://formik.org/docs/examples/with-material-ui
 
-const validationSchema = yup.object({
+const validationSchema = yup.object({   //yup installed from npm, as recommended by Formik as a form-level validation https://formik.org/docs/guides/validation
     username: yup
         .string('Enter your username')
         .required('Username is required'),
@@ -21,7 +19,6 @@ const validationSchema = yup.object({
 });
 
 const SignIn = () => {
-    //const classes = useStyle(); ///
     const [error, setError] = useState();
     const navigate = useNavigate();
 
@@ -66,7 +63,7 @@ const SignIn = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Container maxWidth="sm"  sx={{padding: 10}}>
+            <Container maxWidth="sm" sx={{padding: 10}}>
                 <Card sx={{padding: 4}} elevation={4}>
                     <form onSubmit={formik.handleSubmit}>
                         <Grid container spacing={2}>
@@ -105,7 +102,8 @@ const SignIn = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Button onClick={() => navigate('/sign-up')} variant="outlined">Create account</Button>
-                                <Button onClick={() => navigate(-1)} variant="outlined" sx={{marginLeft: 2}}>Go Back </Button>
+                                <Button onClick={() => navigate(-1)} variant="outlined" sx={{marginLeft: 2}}>Go
+                                    Back </Button>
 
                             </Grid>
                             {error && (

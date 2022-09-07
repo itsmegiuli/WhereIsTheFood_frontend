@@ -1,15 +1,5 @@
 import React from 'react';
-import {
-    Button,
-    Card,
-    colors,
-    Container,
-    containerClasses,
-    createTheme,
-    Grid,
-    TextField, ThemeProvider,
-    Typography
-} from "@mui/material";
+import {Button, Card, Container, Grid, TextField, ThemeProvider, Typography} from "@mui/material";
 import * as yup from 'yup';
 import {useFormik} from "formik";
 import {Navigate, useNavigate} from "react-router-dom";
@@ -33,7 +23,7 @@ const SignUp = () => {
         const url = `${baseUrl}/sign-up`;
         const response = await fetch(url, {
             method: 'POST',
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            cache: 'no-cache',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -100,8 +90,10 @@ const SignUp = () => {
                                 <Button type="submit" variant="contained">Sign up</Button>
                             </Grid>
                             <Grid item xs={12}>
-                                <Button  onClick={() => navigate('/sign-in')} variant="outlined">Already signed up?</Button>
-                                <Button onClick={() => navigate(-1)} variant="outlined"  sx={{marginLeft: 2}}> Go Back </Button>
+                                <Button onClick={() => navigate('/sign-in')} variant="outlined">Already signed
+                                    up?</Button>
+                                <Button onClick={() => navigate(-1)} variant="outlined" sx={{marginLeft: 2}}> Go
+                                    Back </Button>
                             </Grid>
                         </Grid>
                     </form>
