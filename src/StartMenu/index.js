@@ -1,23 +1,8 @@
 import React from "react";
-
-import {
-    Typography,
-    AppBar,
-    Card,
-    CardActions,
-    CardContent,
-    CardMedia,
-    CssBaseline,
-    Grid,
-    Toolbar,
-    Container,
-    Button, Link
-} from "@mui/material";
+import {Link} from "@mui/material";
 import ButtonUnstyled, { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
 import { styled } from '@mui/system';
 import Stack from '@mui/material/Stack';
-import {getSpaceUntilMaxLength} from "@testing-library/user-event/dist/utils";
-
 
 
 const CustomButton = styled(ButtonUnstyled)`
@@ -58,8 +43,8 @@ const StartMenu = () => {
             <Stack container spacing={2} direction={"column"} align={"center"} padding={5} >
                 <Link href={'/quiz'}><CustomButton className="startMenu">take the quiz</CustomButton></Link>
                 <Link href={'/random'}><CustomButton className="startMenu">get random result</CustomButton></Link>
+                <Link href={'about-us'}><CustomButton className="startMenu">about us</CustomButton></Link>
                 <Link href={'/sign-in'}><CustomButton className="startMenu">sign in</CustomButton></Link>
-                <Link href={'/sign-up'}><CustomButton className="startMenu">sign up</CustomButton></Link>
             </Stack>
     );
 }

@@ -2,13 +2,14 @@ import React from 'react'
 import {BrowserRouter as Router, Route, Routes,} from "react-router-dom";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
-import Home from "./Home";
+import Home from "./AboutUs";
 import Quiz from "./Quiz";
 import StartMenu from "./StartMenu";
 import Layout from "./Layout";
 import Results from "./Results";
 import Favorites from "./Favorites";
 import Random from "./Random";
+import About from "./AboutUs";
 
 function App() {
     return (
@@ -23,6 +24,8 @@ function App() {
                     <Route path="/results" element={<Results/>}/>
                     <Route path="/random" element={<Random/>}/>
                     <Route path="/favorites" element={<Favorites />}/>
+                    <Route path="/about-us" element={<About />}/>
+
                 </Route>
             </Routes>
         </Router>

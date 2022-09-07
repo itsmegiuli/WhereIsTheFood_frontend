@@ -18,6 +18,7 @@ const WhenSignedIn = () => {
                     <li><a href="/quiz">take the quiz</a></li>
                     <li><a href="/random">get random result</a></li>
                     <li><a href="/favorites">see your favorites</a></li>
+                    <li><a href="/about-us">about us</a></li>
                     <li><a onClick={logout}>sign out</a></li>
 
                 </ul>

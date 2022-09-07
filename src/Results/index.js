@@ -113,7 +113,7 @@ const Results = () => {
     } else if (error) {
         return <Alert severity="error">{error}</Alert>;
     } else if (!category || !category.restaurants || !category.restaurants.length || category.restaurants.length === 0) {
-        return <Alert severity="info">No restaurants found for category</Alert>;
+        return <Alert severity="info" color="success">No restaurants found for category</Alert>;
     }
 
     return (
