@@ -48,19 +48,19 @@ const StartMenu = () => {
                 <Link href={'/random'}><CustomButton className="startMenu">get random result</CustomButton></Link>
                 <Link href={'/about-us'}><CustomButton className="startMenu">about us</CustomButton></Link>
 
+                {/* "different" menus depending if you're signed in or not */}
+
+                {/*if signed in (token), see your favorites and log out visible*/}
                 {sessionStorage.getItem("token") && <Link href={'/favorites'}><CustomButton className="startMenu">see your favorites</CustomButton></Link>}
                 {sessionStorage.getItem("token") && <Link><CustomButton onClick={logout} className="startMenu">log out</CustomButton></Link>}
 
 
+                {/* if NOT signed in (!token), sign in /up option */}
                 {!sessionStorage.getItem("token") && <Link href={'/sign-in'}><CustomButton className="startMenu">sign in</CustomButton></Link>}
                 {!sessionStorage.getItem("token") && <Link href={'/sign-up'}><CustomButton className="startMenu">sign up</CustomButton></Link>}
 
             </Stack>
     );
 }
-
-// "different" menus depending if you're signed in or not
-//if signed in (token), see your favorites and log out visible
-//if NOT signed in (!token), sign in /up option
 
 export default StartMenu;
