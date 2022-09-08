@@ -18,6 +18,8 @@ import theme from "../customTheme";
 const Results = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
+    //useState hook --> returns an array with 2 values ...
+    // 1st thing of array = current state, 2nd thing is the function to update said state
     const [category, setCategory] = useState();
     const [weathers, setWeathers] = useState([]);
     const [favorites, setFavorites] = useState([]);
@@ -44,6 +46,7 @@ const Results = () => {
                 throw new Error(responseJson.error);
             }
             setFavorites([...favorites, category]);
+            //...favorites = ALL favorites and categories... the new state is the previously added fav + "new" category
         } catch (err) {
             setError(err.message);
         } finally {

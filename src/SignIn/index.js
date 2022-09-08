@@ -22,6 +22,7 @@ const SignIn = () => {
     const [error, setError] = useState();
     const navigate = useNavigate();
 
+    //called on submit (form below)
     const sendSignInRequestToBackend = async (username, password) => {
         const url = `${baseUrl}/sign-in`;
         try {
@@ -102,10 +103,10 @@ const SignIn = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Button onClick={() => navigate('/sign-up')} variant="outlined">Create account</Button>
-                                <Button onClick={() => navigate(-1)} variant="outlined" sx={{marginLeft: 2}}>Go
-                                    Back </Button>
+                                <Button onClick={() => navigate(-1)} variant="outlined" sx={{marginLeft: 2}}>Go Back </Button>
 
                             </Grid>
+                            {/*if there's an error... show as alert down here*/}
                             {error && (
                                 <Grid item xs={12}>
                                     <Alert severity="error">{error}</Alert>
