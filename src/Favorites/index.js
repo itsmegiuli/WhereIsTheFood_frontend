@@ -32,35 +32,40 @@ const Results = () => {
 
     const addWeather = (restaurantTitle, weather) => {
         setWeathers([...weathers, {restaurantTitle, weather}]);
+        //"...weathers" adds ALL previously weathers plus weather of rest just chosen
     };
 
     const geoCodeLocation = async (location) => {
-        const uriEncodedLocation = encodeURI(location);
+        //from a location (address) we get a latitude and longitude to then use for the weather api
+        const uriEncodedLocation = encodeURI(location);  //encodes the location as a URI
         const url = `https://nominatim.openstreetmap.org/search?q=${uriEncodedLocation}&format=json`;
         const response = await fetch(url);
         const responseJson = await response.json();
-        const firstResponse = responseJson[0];
+        const firstResponse = responseJson[0]; //we take the latitude and longitude from the first result
         return {
             lat: firstResponse.lat,
             lon: firstResponse.lon,
         };
     };
-
+    //from a latitude and longitude gotten from the nominatim.openstreetmap.org API, we get the weather from today
     const getWeatherForGeoLocation = async (lat, lon) => {
         const date = new Date();
-        const dateString = date.toISOString().substring(0, 10);
+        const dateString = date.toISOString().substring(0, 10);  //date restricted to 10 characters
         const url = `https://api.brightsky.dev/weather?lat=${lat}&lon=${lon}&date=${dateString}`;
         const response = await fetch(url);
         const responseJson = await response.json();
         return responseJson.weather.filter(w => w.timestamp.substring(0, 13) === date.toISOString().substring(0, 13))[0];
     };
 
+    //combining both APIs info to get show the weather
     const fetchWeatherForLocation = async (restaurantTitle, location) => {
         const coordinates = await geoCodeLocation(location);
         const weather = await getWeatherForGeoLocation(coordinates.lat, coordinates.lon);
         addWeather(restaurantTitle, weather);
     };
 
+
+    /** REMOVE FROM FAVORITES **/
     const removeFromFavorites = async (categoryName) => {
         try {
             const url = `${baseUrl}/favorites/${categoryName}`;
@@ -82,6 +87,7 @@ const Results = () => {
             setLoading(false);
         }
     };
+
 
     const fetchFavorites = async () => {
         setLoading(true);
