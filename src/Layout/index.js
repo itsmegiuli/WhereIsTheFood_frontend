@@ -13,10 +13,12 @@ const Layout = () => {
         <Container>
             <Box className="header">
                 <a href="/"><img src="/logo.png" alt="Logo of Where's the food" id="logo"/></a>
-                {!hideNavBarLocations.includes(location) && <NavBar/>}
+                    {!hideNavBarLocations.includes(location) && <NavBar/>}
+                    {/* only if we are NOT in "/" nav bar (drop down menu) will show */}
             </Box>
             <Box>
                 <Outlet/>
+                {/* components go here*/}
             </Box>
         </Container>
     );

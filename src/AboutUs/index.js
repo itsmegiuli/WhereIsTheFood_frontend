@@ -1,11 +1,8 @@
 import React from "react";
-import {Box, Card, Container, Typography} from "@mui/material";
+import {Card, Container, Typography} from "@mui/material";
 
 const About = () => {
-    // if token is not set, redirect to sign-in
-   // if (!localStorage.getItem("token")) {
-     //   return <Navigate to="/sign-in" replace />;
-   // }
+
 
     return (
         <Container >
